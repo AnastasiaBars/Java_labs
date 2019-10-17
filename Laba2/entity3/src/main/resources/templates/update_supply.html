@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update</title>
+</head>
+<body>
+<a href="/supply">Go back</a>
+<div align="center">
+    <form method="post">
+        <label>Date
+            <br>
+            <input type="date" name="date" th:value="${supply.dateSupply}"></br>
+        </label>
+        <label>Tovar
+            <br>
+            <input type="text" name="tovar" th:value="${supply.tovar}"></br>
+        </label>
+        <label>Value
+            <br>
+            <input type="text" name="value" th:value="${supply.value}"></br>
+        </label>
+        <label>Shop id
+            <br>
+            <input type="text" name="shopId" th:value="${supply.shopId}"></br>
+            <br>
+        </label>
+        <button type="submit">Update</button>
+    </form>
+</div>
+</body>
+</html>

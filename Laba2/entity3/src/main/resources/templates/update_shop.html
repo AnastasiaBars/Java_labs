@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update</title>
+</head>
+<body>
+<a href="/shops">Go back</a>
+<div align="center">
+    <form method="post">
+        <label>Name
+            <br>
+            <input type="text" name="name" th:value="${shop.name}"></br>
+        </label>
+        <label>Address
+            <br>
+            <input type="text" name="address" th:value="${shop.address}"></br>
+        </label>
+        <label>Phone number
+            <br>
+            <input type="text" name="phone" th:value="${shop.phone}"></br>
+            <br>
+        </label>
+        <button type="submit">Update</button>
+    </form>
+</div>
+</body>
+</html>

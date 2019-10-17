@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Supply</title>
+</head>
+<body>
+<style>
+    table {
+        font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+        font-size: 14px;
+        border-collapse: collapse;
+        text-align: center;
+    }
+    th, td:first-child {
+        background: #AFCDE7;
+        color: white;
+        padding: 10px 20px;
+    }
+    th, td {
+        border-style: solid;
+        border-width: 0 1px 1px 0;
+        border-color: white;
+    }
+    td {
+        background: #D8E6F3;
+    }
+</style>
+
+<div style="display: flex; justify-content: center;">
+    <div>
+        <table>
+            <caption><h2>List of Supply</h2></caption>
+            <tr>
+                <th>id</th>
+                <th>Date</th>
+                <th>Tovar</th>
+                <th>Value</th>
+                <th>ID shop</th>
+                <th>Action</th>
+            </tr>
+            <tr th:each="supply:${supplys}">
+                <td><p th:text="${supply.idSupply}"></p></td>
+                <td><p th:text="${supply.dateSupply}"></p></td>
+                <td><p th:text="${supply.tovar}"></p></td>
+                <td><p th:text="${supply.value}"></p></td>
+                <td><p th:text="${supply.shopId}"></p></td>
+                <td><a th:href="@{'/update_supply?id=' + ${supply.idSupply}}">Update data</a><br>
+                    <a th:href="@{'/delete_supply?id=' + ${supply.idSupply}}">Delete supply</a></td>
+            </tr>
+        </table>
+        <a th:href="@{'/create_supply'}">Add new supply</a>
+        <br>
+        <a th:href="@{'/shops'}">Go to shops</a>
+    </div>
+</div>
+</body>
+</html>

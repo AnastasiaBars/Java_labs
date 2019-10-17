@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shops</title>
+</head>
+<body>
+<style>
+    table {
+        font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+        font-size: 14px;
+        border-collapse: collapse;
+        text-align: center;
+    }
+    th, td:first-child {
+        background: #AFCDE7;
+        color: white;
+        padding: 10px 20px;
+    }
+    th, td {
+        border-style: solid;
+        border-width: 0 1px 1px 0;
+        border-color: white;
+    }
+    td {
+        background: #D8E6F3;
+    }
+</style>
+
+<div style="display: flex; justify-content: center;">
+    <div>
+        <table>
+            <caption><h2>List of Shops</h2></caption>
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone </th>
+                <th>Action</th>
+            </tr>
+            <tr th:each="shop:${shops}">
+                <td><p th:text="${shop.idShop}"></p></td>
+                <td><p th:text="${shop.name}"></p></td>
+                <td><p th:text="${shop.address}"></p></td>
+                <td><p th:text="${shop.phone}"></p></td>
+                <td><a th:href="@{'/update_shop?id=' + ${shop.idShop}}">Update data</a><br>
+                    <a th:href="@{'/delete_shop?id=' + ${shop.idShop}}">Delete shop</a></td>
+            </tr>
+        </table>
+        <a th:href="@{'/create_shop'}">Add new shop</a>
+        <br>
+        <a th:href="@{'/supplys'}">Go to supply</a>
+    </div>
+</div>
+</body>
+</html>
